@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import re_path, include
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 admin.autodiscover()
@@ -29,4 +31,4 @@ urlpatterns = [
     re_path(r'booking/', include('booking.urls')),
     re_path(r'users/', include('users.urls')),
     re_path(r'trains/', include('trains.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

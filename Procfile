@@ -1,1 +1,1 @@
-web: python manage.py runserver 
+web: uwsgi uwsgi.ini 
